@@ -9,16 +9,16 @@ import { OrmFindAlarmsRepository } from './repositories/find-alarms.repository';
 import { UpsertMaterializedAlarmRepository } from '../../../application/ports/upsert-materialized-alarm.repository';
 import { OrmUpsertMaterializedAlarmRepository } from './repositories/upsert-materialized-alarm.repository';
 import { MongooseModule } from '@nestjs/mongoose';
-// import {
-//   MaterializedAlarmView,
-//   MaterializedAlarmViewSchema,
-// } from './schemas/materialized-alarm-view.schema';
+import {
+  MaterializedAlarmView,
+  MaterializedAlarmViewSchema,
+} from './schemas/materialized-alarm-view.schema';
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([AlarmEntity, AlarmItemEntity]),
     MongooseModule.forFeature([
-      // { name: MaterializedAlarmView.name, schema: MaterializedAlarmViewSchema },
+      { name: MaterializedAlarmView.name, schema: MaterializedAlarmViewSchema },
     ]),
   ],
   providers: [
