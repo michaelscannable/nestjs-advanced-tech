@@ -16,6 +16,7 @@ export class CoreModule {
               username: 'scannableDB',
               autoLoadEntities: true,
               synchronize: true,
+              database: 'nest',
             }),
           ]
         : [];
