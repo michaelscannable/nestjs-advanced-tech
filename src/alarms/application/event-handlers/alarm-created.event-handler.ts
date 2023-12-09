@@ -15,7 +15,6 @@ export class AlarmCreatedEventHandler
   ) {}
 
   async handle(event: SerializedEventPayload<AlarmCreatedEvent>) {
-    // 👈
     this.logger.log(`Alarm created event: ${JSON.stringify(event)}`);
 
     // In a real-world application, we would have to ensure that this operation is atomic
@@ -25,7 +24,7 @@ export class AlarmCreatedEventHandler
     await this.upsertMaterializedAlarmRepository.upsert({
       id: event.alarm.id,
       name: event.alarm.name,
-      severity: event.alarm.severity.value,
+      severity: event.alarm.severity,
       triggeredAt: new Date(event.alarm.triggeredAt),
       isAcknowledged: event.alarm.isAcknowledged,
       items: event.alarm.items,
