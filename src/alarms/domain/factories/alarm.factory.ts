@@ -23,7 +23,7 @@ export class AlarmFactory {
       .map((item) => new AlarmItem(randomUUID(), item.name, item.type))
       .forEach((item) => alarm.addAlarmItem(item));
 
-    alarm.apply(new AlarmCreatedEvent(alarm), { skipHandler: true }); // 👈
+    alarm.apply(new AlarmCreatedEvent(alarm), { skipHandler: true });
     return alarm;
   }
 }

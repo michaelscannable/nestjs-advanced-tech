@@ -4,7 +4,7 @@ import { AlarmCreatedEvent } from '../../domain/events/alarm-created.event';
 import { UpsertMaterializedAlarmRepository } from '../ports/upsert-materialized-alarm.repository';
 import { SerializedEventPayload } from '../../../shared/domain/interfaces/serializable-event';
 
-@EventsHandler(AlarmCreatedEvent) // 👈
+@EventsHandler(AlarmCreatedEvent)
 export class AlarmCreatedEventHandler
   implements IEventHandler<SerializedEventPayload<AlarmCreatedEvent>>
 {
@@ -26,7 +26,7 @@ export class AlarmCreatedEventHandler
       id: event.alarm.id,
       name: event.alarm.name,
       severity: event.alarm.severity.value,
-      triggeredAt: new Date(event.alarm.triggeredAt), // 👈 new Date needed here
+      triggeredAt: new Date(event.alarm.triggeredAt),
       isAcknowledged: event.alarm.isAcknowledged,
       items: event.alarm.items,
     });
