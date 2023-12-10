@@ -1,10 +1,8 @@
 import { Injectable, Type } from '@nestjs/common';
-// import { EventStore } from './ports/event-store';
 import { EventPublisher } from '@nestjs/cqrs';
 import { EventStore } from 'src/alarms/application/ports/event-store';
 import { VersionedAggregateRoot } from 'src/shared/domain/aggregate-root';
 import { SerializableEvent } from 'src/shared/domain/interfaces/serializable-event';
-// import { VersionedAggregateRoot } from '../domain/aggregate-root';
 
 @Injectable()
 export class AggregateRehydrator {

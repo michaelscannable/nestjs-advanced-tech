@@ -14,7 +14,6 @@ import { CqrsModule } from '@nestjs/cqrs';
 })
 export class AppModule {
   static register(options: ApplicationBootstrapOptions) {
-    // 👈 new method
     return {
       module: AppModule,
       imports: [

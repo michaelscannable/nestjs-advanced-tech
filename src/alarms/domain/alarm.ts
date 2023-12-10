@@ -1,3 +1,4 @@
+import { Logger } from '@nestjs/common';
 import { VersionedAggregateRoot } from '../../shared/domain/aggregate-root';
 import { SerializedEventPayload } from '../../shared/domain/interfaces/serializable-event';
 import { AlarmItem } from './alarm-item';
@@ -11,6 +12,7 @@ export class Alarm extends VersionedAggregateRoot {
   public triggeredAt: Date;
   public isAcknowledged = false;
   public items = new Array<AlarmItem>();
+  private logger = new Logger(Alarm.name);
 
   constructor(public id: string) {
     super();
@@ -43,5 +45,8 @@ export class Alarm extends VersionedAggregateRoot {
       throw new Error('Alarm has already been acknowledged');
     }
     this.isAcknowledged = true;
+
+    this.logger.debug(`Alarm "${this.name}" acknowledged`);
+    this.logger.debug(`Alarm items: ${JSON.stringify(event)}`);
   }
 }

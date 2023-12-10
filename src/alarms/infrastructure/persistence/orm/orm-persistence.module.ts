@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
 import { CreateAlarmRepository } from '../../../application/ports/create-alarm.repository';
-import { AlarmEntity } from './entities/alarm.entity';
 import { OrmCreateAlarmRepository } from './repositories/create-alarm.repository';
-import { AlarmItemEntity } from './entities/alarm-item.entity';
+// import { TypeOrmModule } from '@nestjs/typeorm';
+// import { AlarmEntity } from './entities/alarm.entity';
+// import { AlarmItemEntity } from './entities/alarm-item.entity';
 import { FindAlarmsRepository } from '../../../application/ports/find-alarms.repository';
 import { OrmFindAlarmsRepository } from './repositories/find-alarms.repository';
 import { UpsertMaterializedAlarmRepository } from '../../../application/ports/upsert-materialized-alarm.repository';
@@ -16,7 +16,7 @@ import {
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([AlarmEntity, AlarmItemEntity]),
+    // TypeOrmModule.forFeature([AlarmEntity, AlarmItemEntity]),
     MongooseModule.forFeature([
       { name: MaterializedAlarmView.name, schema: MaterializedAlarmViewSchema },
     ]),
